@@ -1,0 +1,15 @@
+﻿@model IEnumerable<CignaInsurance.Models.Customer>
+
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<h2>Welcome to our Project,</h2>
+<br />
+@foreach (var customer in Model)
+{
+    @Html.DisplayFor(m => customer.Firstname); <br />
+}
+
+
+

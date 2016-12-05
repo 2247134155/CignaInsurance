@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9896fd1c16a14907933584aefb1e8ac5" Name="Diagram1">
+        <EntityTypeShape EntityType="HealthInsuranceModel.Agent" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.City" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.Claim" Width="1.5" PointX="9.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.Credential" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.Customer" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.Doctor" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.Hospital" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.Plan" Width="1.5" PointX="12.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.PlanType" Width="1.5" PointX="10.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.Quote" Width="1.5" PointX="9.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.State" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthInsuranceModel.User" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Agent__UserID__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Claims__AgentID__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Hospital__CityID__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Claims__Customer__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Users__CreID__1367E606" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Customer__Doctor__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Customer__UserID__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Plan__CustomerID__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Quote__CustomerI__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Doctor__Hospital__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Hospital__StateI__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthInsuranceModel.FK__Plan__PlanTypeID__3A81B327" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
