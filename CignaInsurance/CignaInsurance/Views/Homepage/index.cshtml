@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<html>
+<head>
+    <link href="~/Styles/HomePage.css" rel="stylesheet" />
+</head>
+
+    <body>
+        <div id="sitebody">
+            <div id="menubar">
+
+                <ul id="list">
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Company</a></li>
+                    <li><a href="">Blog</a></li>
+                </ul>
+
+                <button id="login"><a href="" id=buttons><b>login to Mycigna</b></a></button>
+                <button id="findDoc"><a href="" id=buttons><b>Find a Doctor</b></a></button>
+                <button id="search"><a href="" id=buttons><b>Search</b></a></button>
+
+
+
+                <input id="searchbar">
+
+
+            </div>
+
+            <div id="content1">
+                <img src="~/Image/placeholder.png" id="firstpanel" width="400" height="300" usemap="#clickable1" />
+                <img src="~/Image/placeholder.png" id="secondpanel" width="400" height="300" usemap="#clickable2" />
+                <img src="~/Image/placeholder.png" id="thirdpanel" width="400" height="300" usemap="#clickable3" />
+                <map name="clickable1">
+                    <area shape="rect" coords="0,200,400,370" href="" alt="panel1">
+                </map>
+                <map name="clickable2">
+                    <area shape="rect" coords="0,200,400,370" href="" alt="panel2">
+                </map>
+                <map name="clickable3">
+                    <area shape="rect" coords="0,200,400,370" href="" alt="panel3">
+                </map>
+
+            </div>
+            <div id="functionality">
+                <div class="functionlinks">
+                    <ul id="functions">
+                        <li><a href="">I WANT TO FIND A DOCTOR</a></li>
+                        <li><a href="">Declare A Claim</a></li>
+                        <li><a href="">CHECK A CLAIM</a></li>
+                        <li><a href="">GET AN INTERNATIONAL QUOTE</a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+            <div id="content2">
+                <img src="~/Image/placeholder2.jpg" width="1210" />
+
+
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </body>
+
+</html>
+
