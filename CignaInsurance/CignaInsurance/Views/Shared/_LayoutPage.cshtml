@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Styles/Footer.css" rel="stylesheet" />
+    <link href="~/Styles/Header.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <ul class="list">
+            <li class="listitem">
+                <a href="">Personal</a>
+            </li>
+        </ul>
+        <div>
+
+            <img src="~/Image/logo.png" height="100" width="100" />
+        </div>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+    <div id="foot">
+
+        <img src="~/Image/logo.png" height="100" width="100" />
+
+    </div>
+    </footer>
+</body>
+</html>

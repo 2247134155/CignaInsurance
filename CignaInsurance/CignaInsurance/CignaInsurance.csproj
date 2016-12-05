@@ -118,14 +118,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Views\Shared\log.png" />
-    <Content Include="Views\Shared\logo.png" />
-    <Content Include="Views\Shared\placeholder.png" />
-    <Content Include="Views\Shared\placeholder2.jpg" />
+    <Content Include="Image\logo.png" />
+    <Content Include="Image\placeholder.png" />
+    <Content Include="Image\placeholder2.jpg" />
+    <Content Include="Styles\Footer.css" />
+    <Content Include="Styles\Header.css" />
+    <Content Include="Styles\HomePage.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,7 +142,8 @@
     </Content>
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
-    <Content Include="Views\Shared\HomePage.cshtml" />
+    <Content Include="Views\HomePage\index.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -149,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
