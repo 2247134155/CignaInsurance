@@ -117,6 +117,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database Building\InsertValue.sql" />
+    <Content Include="Database Building\TestCigna.sql" />
     <Content Include="Global.asax" />
     <Content Include="Views\Shared\log.png" />
     <Content Include="Views\Shared\logo.png" />
