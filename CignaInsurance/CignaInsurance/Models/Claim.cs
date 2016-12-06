@@ -11,7 +11,8 @@ namespace CignaInsurance.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Data.Entity;
+
     public partial class Claim
     {
         public int ClaimID { get; set; }
@@ -25,5 +26,13 @@ namespace CignaInsurance.Models
     
         public virtual Agent Agent { get; set; }
         public virtual Customer Customer { get; set; }
+        public class ClaimDBContext : DbContext
+        {
+            public DbSet<Claim> Claims
+            {
+                get; set;
+            }
+        }
+
     }
 }

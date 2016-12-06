@@ -1,0 +1,24 @@
+﻿@model CignaInsurance.Models.Customer
+@model2 CignaInsurance.Models.
+
+
+        @Html.DisplayFor(model => model.Firstname)<br />
+        @Html.DisplayFor(model => model.Lastname)<br />
+        @if (Model.Gender)
+        {
+            <p style="margin:0;">Male</p>
+        }
+        else
+        {
+            <p style="margin:0;">Female</p>
+        }
+        @Html.DisplayFor(model => model.DateofBirth)<br />
+        @Html.DisplayFor(model => model.Address)<br />
+        @Html.DisplayFor(model => model.CityID)<br />
+        @Html.DisplayFor(model => model.StateID)<br />
+        @Html.DisplayFor(model => model.Zip)<br />
+        @Html.DisplayFor(model => model.Phone)<br />
+        @Html.DisplayFor(model => model.Email)<br />
+        @Html.DisplayFor(model => model.SSN)<br />
+        @Html.DisplayFor(model => model.DoctorID)<br />
+
