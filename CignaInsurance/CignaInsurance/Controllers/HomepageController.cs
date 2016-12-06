@@ -19,5 +19,12 @@ namespace CignaInsurance.Controllers
             var HIDB = new HealthInsuranceDB();
             return View(HIDB.Customers.ToList());
         }
+
+        public ActionResult Redirects(int id)
+        {
+            Customer cust = new HealthInsuranceDB().Customers.Find(id);
+            TempData["Customer"] = cust;
+            return RedirectToAction("AboutQuote", "Quote");
+        }
     }
 }
