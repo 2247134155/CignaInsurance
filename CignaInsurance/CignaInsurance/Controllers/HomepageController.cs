@@ -8,7 +8,7 @@ namespace CignaInsurance.Controllers
 {
     public class HomepageController : Controller
     {
-        // GET: Homepage
+        // GET: Homepage cuz im the best
         public ActionResult Index()
         {
             return View();
