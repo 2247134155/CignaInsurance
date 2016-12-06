@@ -8,7 +8,8 @@
 <br />
 @foreach (var customer in Model)
 {
-    @Html.DisplayFor(m => customer.Firstname); <br />
+    @Html.DisplayFor(m => customer.CustomerID); <br />
+    @Html.ActionLink(customer.Firstname,"Redirects", "Homepage", new { id = customer.CustomerID}, null) <br />
 }
 
 

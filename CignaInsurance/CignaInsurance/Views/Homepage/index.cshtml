@@ -1,11 +1,10 @@
 ﻿@{
-    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    ViewBag.title = "Homepage";
 }
 <html>
 <head>
     <link href="~/Styles/HomePage.css" rel="stylesheet" />
 </head>
-
     <body>
         <div id="sitebody">
             <div id="menubar">
@@ -42,14 +41,12 @@
                 <div class="functionlinks">
                     <ul id="functions">
                         <li><a href="">I WANT TO FIND A DOCTOR</a></li>
-                        <li><a href="">Declare A Claim</a></li>
+                        <li><a href="">DECLARE A CLAIM</a></li>
                         <li><a href="">CHECK A CLAIM</a></li>
-                        <li><a href="">GET AN INTERNATIONAL QUOTE</a></li>
+                        <li>@Html.ActionLink("GET AN INTERNATIONAL QUOTE","AboutQuote","Quote")</li>
 
                     </ul>
-
                 </div>
-
             </div>
             <div id="content2">
                 <img src="~/Image/placeholder2.jpg" width="1210" />
@@ -59,6 +56,5 @@
 
         </div>
     </body>
-
 </html>
 
