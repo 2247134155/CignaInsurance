@@ -166,6 +166,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomepageController.cs" />
+    <Compile Include="Controllers\QuoteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,9 +185,11 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>HealthInsurance.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerQuotePlan.cs" />
     <Compile Include="Models\Doctor.cs">
       <DependentUpon>HealthInsurance.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DoctorViewModel.cs" />
     <Compile Include="Models\HealthInsurance.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -241,6 +244,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Homepage\index.cshtml" />
     <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Quote\AboutQuote.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
