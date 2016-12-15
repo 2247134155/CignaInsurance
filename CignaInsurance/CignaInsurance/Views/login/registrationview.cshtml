@@ -1,0 +1,91 @@
+﻿@model CignaInsurance.Models.Registration
+@{
+    ViewBag.Title = "loginview";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>registrationview</title>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"> </script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    <h2>login</h2>
+
+    <form action="registrationview" method="post" >
+
+
+
+            <i class="lbl">Name</i>
+            <input id="r1" type="text" title="enter name" name="name" [requere] />
+            <span class="label label-danger " id="p1"></span>
+            <br />
+            <br />
+
+            <i class="lbl">last name</i>
+            <input id="r2" type="text" class="txtbox" name="lastname" title="enter last name" [requere] />
+            <span class="label label-danger " id="p2" name=""></span>
+            <br />
+            <br />
+
+            <i class="lbl">day of birth</i>
+            <input id="r2" type="date" name="DOB" title="date of birth" [requere] /><br />
+            <span class="label label-danger " id="p3" name=""></span>
+            <br />
+            <br />
+            <i class="lbl">address</i>
+            <input id="r4" type="text" class="txtbox" name="address" title="address" [requere] />
+            <span class="label label-danger " id="p4" name=""></span>
+            <br />
+            <br />
+            <i class="lbl">Phone</i>
+            <input id="r5" type="text" class="txtbox" name="phone" title="phone number" [requere] />
+            <span class="label label-danger " id="p5" name=""></span>
+            <br />
+            <br />
+            <i class="lbl">city</i>
+            <input id="r6" type="text" class="txtbox" name="city" title="enter city" [requere] />
+            <span class="label label-danger " id="p6" name=""></span>
+            <br />
+            <br />
+
+            <i class="lbl">state</i>
+            <input id="r7" type="text" class="txtbox" name="state" title="enter state" [requere] />
+            <span class="label label-danger " id="p7" name=""></span>
+            <br />
+            <br />
+            <i class="lbl">zip code</i>
+            <input id="r8" type="text" class="txtbox" name="zipcode" title="enter zip-code" [requere] />
+            <span class="label label-danger " id="p8" name=""></span>
+            <br />
+            <br />
+            <i class="lbl">Email</i>
+            <input id="r9" type="text" class="txtbox" name="email" title="enter email" [requere] />
+            <span class="label label-danger " id="p9" name=""></span>
+            <br />
+            <br />
+            <i class="lbl">Gender</i>
+            <input id="r10" type="text" class="txtbox" name="gender" title="enter zip-code" [requere] />
+            <span class="label label-danger " id="p10" name=""></span>
+            <br />
+            <br />
+            <i class="lbl">ssn</i>
+
+            <input id="r11" type="text" class="txtbox" name="SSN" title="enter zip-code" [requere] />
+            <span class="label label-danger " id="p11" name=""></span>
+            <br />
+            <br />
+
+        <input type="submit" value="finish register" class="btn btn-primary" title="submit" />
+
+
+
+      
+    </form>
+
+    <script src="~/Scripts/registration.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>

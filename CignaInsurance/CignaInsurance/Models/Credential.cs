@@ -11,7 +11,8 @@ namespace CignaInsurance.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Credential
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,7 @@ namespace CignaInsurance.Models
         {
             this.Users = new HashSet<User>();
         }
-    
+        [Key]
         public int CreID { get; set; }
         public Nullable<int> Credentials { get; set; }
     

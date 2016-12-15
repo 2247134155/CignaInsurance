@@ -129,7 +129,47 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\JQueryUI\AUTHORS.txt" />
+    <Content Include="Content\JQueryUI\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\JQueryUI\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\JQueryUI\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\JQueryUI\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\JQueryUI\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\JQueryUI\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\JQueryUI\index.html" />
+    <Content Include="Content\JQueryUI\jquery-ui.css" />
+    <Content Include="Content\JQueryUI\jquery-ui.js" />
+    <Content Include="Content\JQueryUI\jquery-ui.min.css" />
+    <Content Include="Content\JQueryUI\jquery-ui.min.js" />
+    <Content Include="Content\JQueryUI\jquery-ui.structure.css" />
+    <Content Include="Content\JQueryUI\jquery-ui.structure.min.css" />
+    <Content Include="Content\JQueryUI\jquery-ui.theme.css" />
+    <Content Include="Content\JQueryUI\jquery-ui.theme.min.css" />
+    <Content Include="Content\JQueryUI\LICENSE.txt" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\2.jpg" />
+    <Content Include="images\67414344-doctor-wallpapers.jpg" />
+    <Content Include="images\67791931-doctor-wallpapers.jpg" />
+    <Content Include="images\67833082-doctor-wallpapers.jpg" />
+    <Content Include="images\67932929-doctor-wallpapers.jpg" />
+    <Content Include="images\chart2-orange-darker.png" />
+    <Content Include="images\eyes.png" />
+    <Content Include="images\globe-green-logo.png" />
+    <Content Include="images\hearthand-orange-darker.png" />
+    <Content Include="images\news-orange-darker.png" />
+    <Content Include="images\piggy-green-logo.png" />
+    <Content Include="images\pill-bottle-green-logo.png" />
+    <Content Include="images\stethoscope.png" />
+    <Content Include="images\teeth.png" />
+    <Content Include="Scripts\bootstrapvalidator.js" />
+    <Content Include="Scripts\forgetusername.js" />
+    <Content Include="Scripts\JavaScript.js" />
+    <Content Include="Scripts\preregistraion.js" />
+    <Content Include="Scripts\registration.js" />
     <Content Include="Styles\Footer.css" />
     <Content Include="Styles\Header.css" />
     <Content Include="Styles\HomePage.css" />
@@ -150,6 +190,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\JQueryUI\package.json" />
+    <Content Include="Content\bootstrap\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\bootstrap.min.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -161,12 +206,17 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Styles\LayoutPage.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\HomepageController.cs" />
+    <Compile Include="Controllers\loginController.cs" />
     <Compile Include="Controllers\QuoteController.cs" />
+    <Compile Include="Dal\CustomerDal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +258,7 @@
     <Compile Include="Models\Hospital.cs">
       <DependentUpon>HealthInsurance.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginClass.cs" />
     <Compile Include="Models\Plan.cs">
       <DependentUpon>HealthInsurance.tt</DependentUpon>
     </Compile>
@@ -224,6 +275,12 @@
       <DependentUpon>HealthInsurance.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AccountDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ClaimDetailsViewModel.cs" />
+    <Compile Include="ViewModels\CustomerDetailsViewModel.cs" />
+    <Compile Include="ViewModels\DoctorDetailsViewModel.cs" />
+    <Compile Include="ViewModels\PlanDetailsModelView.cs" />
+    <Compile Include="ViewModels\UpdateDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -231,8 +288,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
     <EntityDeploy Include="Models\HealthInsurance.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HealthInsurance.Designer.cs</LastGenOutput>
@@ -243,10 +298,35 @@
     <Content Include="Views\Homepage\Welcome.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Homepage\index.cshtml" />
-    <Content Include="Views\Shared\_LayoutPage.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Quote\AboutQuote.cshtml" />
+    <Content Include="Views\Quote\RetrieveQuote.cshtml" />
+    <Content Include="Views\Quote\RetrieveQuoteResult.cshtml" />
+    <Content Include="Views\Quote\BuyQuote.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage.cshtml" />
+    <Content Include="Views\login\forgetpassword.cshtml" />
+    <Content Include="Views\login\forgetusername.cshtml" />
+    <Content Include="Views\login\homepage.cshtml" />
+    <Content Include="Views\login\jquerypractica.cshtml" />
+    <Content Include="Views\login\loginview.cshtml" />
+    <Content Include="Views\login\passwordvalidation.cshtml" />
+    <Content Include="Views\login\preregistration.cshtml" />
+    <Content Include="Views\login\registrationview.cshtml" />
+    <Content Include="Views\login\sendmail.cshtml" />
+    <Content Include="Views\Homepage\About.cshtml" />
+    <Content Include="Views\Homepage\Contact.cshtml" />
+    <Content Include="Views\Account\Claims.cshtml" />
+    <Content Include="Views\Account\DeclareClaim.cshtml" />
+    <Content Include="Views\Account\DoctorDetail.cshtml" />
+    <Content Include="Views\Account\index.cshtml" />
+    <Content Include="Views\Account\PlanDetail.cshtml" />
+    <Content Include="Views\Account\UpdateAccount.cshtml" />
+    <Content Include="Views\Doctor\DoctorDetail.cshtml" />
+    <Content Include="Views\Doctor\DoctorDetailPopup.cshtml" />
+    <Content Include="Views\Doctor\FindADoctor.cshtml" />
+    <Content Include="Views\Doctor\FinishChooseDoctor.cshtml" />
+    <Content Include="Views\Doctor\FinishChooseDoctorGuest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -256,6 +336,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\JQueryUI\external\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

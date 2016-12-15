@@ -1,0 +1,51 @@
+﻿ 
+@model CignaInsurance.Models.Forgetusername
+
+@{
+    ViewBag.Title = "loginview";
+}
+<head>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"> </script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+  
+</head>
+<body>
+    <div> 
+
+
+        @using (Html.BeginForm("forgetusername","login",FormMethod.Post))
+        {
+            <br />
+            <br />
+        <p class="lbl"> Name:</p>
+        <input id="f1" type="text"name="Name" class="txtbox" title="enter name" required/>
+        <span class="label label-danger" id="fs1" name=""></span>
+
+        <p  class="lbl"> Last name:</p>
+        <input id="f2" type="text" name="Lastname" class="txtbox" title="enter last name"required />
+        <span class="label label-danger" id="fs2" name=""></span>
+
+        <p   class="lbl"> Date Of Birth</p>
+        <input 1d="f3" class="btn" type="date" name="DOB" title="enter  birth day" required />
+        <span class="label label-danger" id="fs3" name=""></span>
+        <br />
+        <br />
+        <input type="submit"class="btn btn-primary" values="submit" />
+       
+
+        }
+        
+
+ 
+    </div>
+    <script src="~/Scripts/forgetusername.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>

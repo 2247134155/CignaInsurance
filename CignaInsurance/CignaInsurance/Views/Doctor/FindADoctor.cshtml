@@ -1,0 +1,143 @@
+﻿@model System.Collections.Generic.IEnumerable<CignaInsurance.Models.DoctorViewModel>
+
+@{
+    ViewBag.Title = "FindADoctor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="~/Content/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/bootstrap/js/bootstrap.min.js"></script>
+
+<style>
+    th, td {
+        text-align: left;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        color: black;
+    }
+
+    #moveonbox {
+        margin: auto;
+        border: 1px groove blue;
+        background-color: #7bf5f0;
+        width: 100px;
+        height: 20px;
+    }
+
+    #msg {
+        color: #000000;
+    }
+
+    span{
+        color: black;
+        font-family:Arial;
+        letter-spacing: 0px;
+        font-size:medium;
+    }
+
+    navbar{
+        
+    }
+</style>
+
+<body>
+    <h2>FindADoctor</h2>
+    <div style="">
+        <div style="background-color:lightgray" id="SearchBar">
+                <form class="navbar-form navbar-left" action="Search" method="post">
+                        <span>Search Name:</span>
+                        <input name="SerName" type="text" class="form-control" placeholder="Search" />
+                        <span>Search Type:</span>
+                        @*<input name="SerType" type="" class="form-control" placeholder="Search" />*@
+                        <select name="SerType" class="form-control">
+                            <option value="" selected>Search</option>
+                            <option value="Medical">Medical</option>
+                            <option value="Dental">Dental</option>
+                            <option value="Eye">Eye</option>
+                        </select>
+                        <span>Search City:</span>
+                        <input name="SerCity" type="text" class="form-control" placeholder="Search" />
+                        <input id="Submit1" type="submit" value="Search" class="btn btn-default " style="background-color:darkcyan; color:white"/>
+                    
+                </form>
+        </div>
+        <br />
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Address</th>
+                <th>Phone#</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>State</th>
+                
+                
+            </tr>
+
+            @foreach (var doctor in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => doctor.doc.DoctorID)</td>
+                    @*<td>@Html.ActionLink(doctor.doc.Firstname, "DoctorDetail", new { id = doctor.doc.DoctorID })</td>*@
+                    <td>@Html.ActionLink(doctor.doc.Firstname, "DoctorDetailPopup", new { id = doctor.doc.DoctorID }, new { @class = "dialog" })</td>
+                    <td>@Html.DisplayFor(m => doctor.doc.DoctorType)</td>
+                    <td>@Html.DisplayFor(m => doctor.doc.Address)</td>
+                    <td>@Html.DisplayFor(m => doctor.doc.Phone)</td>
+                    <td>@Html.DisplayFor(m => doctor.doc.Email)</td>
+                    <td>@Html.DisplayFor(m => doctor.citys.CityName)</td>
+                    <td>@Html.DisplayFor(m => doctor.states.StateName)</td>
+                    
+                </tr>
+            }
+        </table>
+        <br /><br />
+    </div>
+
+</body>
+
+<script type="text/javascript">
+
+    $(function () {
+        $('a.dialog').click(function () {
+            var url = $(this).attr('href');
+            var dialog = $('<div style="display:none"></div>').appendTo('body');
+            dialog.load(url, {},
+                function (responseText, textStatus, XMLHttpRequest) {
+                    dialog.dialog({
+                        close: function (event, ui) {
+                            dialog.remove();
+                        }
+                    });
+                });
+            return false;
+        });
+    });
+
+    //$(function showpop() {
+    //    $("#dialog").dialog({
+    //        autoOpen: false
+    //    });
+    //    $("#DoctorDetail").click(function () {
+    //        $("#dialog").dialog("open");
+    //    })
+    //});
+
+
+    $(document).on('mouseover', 'table tr', function () {
+        $(this).attr('title', $(this).text());
+    });
+
+</script>

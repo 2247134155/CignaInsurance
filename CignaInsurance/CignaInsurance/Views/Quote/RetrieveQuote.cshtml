@@ -1,0 +1,28 @@
+﻿@model CignaInsurance.Models.Customer
+
+@{
+    ViewBag.Title = "RetrieveQuote";
+}
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title" style="text-align:center;font-weight:bold;">Please insert your QuoteId</h2>
+            </div>
+            <div class="panel-body">
+                <form action="RetrieveQuoteResult" method="post">
+                    <input type="hidden" name="customerId" value="@Model.CustomerID" />
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search for Quote ID" name="QuoteId" />
+                    </div><!-- /input-group -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

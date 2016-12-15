@@ -11,6 +11,8 @@ namespace CignaInsurance.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Customer
     {
@@ -24,16 +26,30 @@ namespace CignaInsurance.Models
     
         public int CustomerID { get; set; }
         public int UserID { get; set; }
+        [Required(ErrorMessage = "A First Name is required")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         public string Firstname { get; set; }
+        [Required(ErrorMessage = "An Last Name is required")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         public string Lastname { get; set; }
         public bool Gender { get; set; }
+        [Required(ErrorMessage = "The Date of Birth is required")]
+        [DataType(DataType.DateTime)]
         public System.DateTime DateofBirth { get; set; }
+        [Required(ErrorMessage = "A Address is required")]
         public string Address { get; set; }
         public int CityID { get; set; }
         public int StateID { get; set; }
+        [Required(ErrorMessage = "A Zip-Code is required")]
         public string Zip { get; set; }
+        [Required(ErrorMessage = "A Phone Number is required")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string Phone { get; set; }
+        [Required(ErrorMessage = "A Email is required")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Required(ErrorMessage = "A SSN is required")]
         public string SSN { get; set; }
         public Nullable<int> DoctorID { get; set; }
     

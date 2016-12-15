@@ -13,9 +13,15 @@ namespace CignaInsurance
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
-                name: "Welcome",
+                name: "HomePage",
                 url: "",
-                defaults: new { controller = "Homepage", action = "Welcome", id = UrlParameter.Optional }
+                defaults: new { controller = "Homepage", action = "Index",  id = UrlParameter.Optional }
+                //Chris Got It
+            );
+            routes.MapRoute(
+                name: "Search",
+                url: "Doctor/FindADoctor/Search",
+                defaults: new { controller = "Doctor", action = "Search", id = UrlParameter.Optional }
                 //Chris Got It
             );
             routes.MapRoute(

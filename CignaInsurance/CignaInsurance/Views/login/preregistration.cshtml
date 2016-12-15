@@ -1,0 +1,60 @@
+﻿@model CignaInsurance.Models.Registration1
+@{
+    ViewBag.Title = "loginview";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>preregistration</title>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"> </script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <h2>Register</h2>
+    <br />
+    <br />
+    <div>
+
+        <form action="preregistration" method="post">
+
+            <i class="lbl">username</i>
+            <input type="text" id="x1" class="txtbox" title="enter your user name" name="username" required />
+            <span class="label label-danger " id="xx1"></span>
+            <br />
+            <br />
+
+            <i class="lbl">password</i>
+            <input type="password" id="x2" name="password" class="txtbox" title="new password" required />
+            <span class="label label-danger " id="xx2"></span>
+            <br />
+            <br />
+
+            <i class="lbl">reenter password</i>
+            <input type="password" id="x3" name="repassword" class="txtbox" title="re-enter new password" required />
+            <span class="label label-danger " id="xx3"></span>
+            <br />
+            <br />
+
+            <input class="btn-primary btn-sm" type="submit" value="Next" title="submit" />
+
+
+            </form>
+
+
+
+
+
+
+</div>
+
+
+
+    
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/preregistraion.js"></script>
+</body>
+</html>

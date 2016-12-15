@@ -1,0 +1,21 @@
+﻿@model CignaInsurance.Models.Customer
+
+@{
+    ViewBag.Title = "RetrieveQuoteResult";
+}
+<div class="row">
+    <div class="col-sm-6">
+        <div class="well">
+            <h4>We are Sorry</h4>
+            <div class="alert alert-danger" role="alert">
+                @ViewBag.error<br />
+                Go Back to
+                <a href="/Quote/RetrieveQuote" class="alert-link">&nbsp;Login&nbsp;</a>
+                Or
+                <a href="/Quote/RetrieveQuote" class="alert-link">&nbsp;Retrieve Quote&nbsp;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

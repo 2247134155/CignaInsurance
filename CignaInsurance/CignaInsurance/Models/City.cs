@@ -11,6 +11,8 @@ namespace CignaInsurance.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class City
     {
@@ -21,6 +23,8 @@ namespace CignaInsurance.Models
         }
     
         public int CityID { get; set; }
+        [Required(ErrorMessage = "A City Name is required")]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Use letters only please")]
         public string CityName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

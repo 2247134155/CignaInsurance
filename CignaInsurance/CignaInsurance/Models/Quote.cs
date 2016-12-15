@@ -23,7 +23,7 @@ namespace CignaInsurance.Models
         public Nullable<System.DateTime> EndDate { get; set; }
         public Nullable<System.DateTime> ExpireDate { get; set; }
         public bool IsActive { get; set; }
-    
+
         public virtual Customer Customer { get; set; }
     }
 }

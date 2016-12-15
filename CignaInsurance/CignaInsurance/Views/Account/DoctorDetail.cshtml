@@ -1,0 +1,144 @@
+﻿@model CignaInsurance.ViewModels.DoctorDetailsViewModel
+@{
+    ViewBag.Title = "DoctorDetail";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<html>
+<head>
+    <!--Styles-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        table {
+            margin-bottom: auto;
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding-bottom: 1em;
+        }
+
+        #inner {
+            padding-left: 2em;
+        }
+
+        tr {
+        }
+    </style>
+</head>
+<body>
+    <!--Content-->
+    <h2>DoctorDetail</h2>
+    <div style="width:900px;">
+        @ViewBag.ErrorMsg
+        @if (Model != null)
+        {
+            <table>
+                <tr>
+                    <td id="inner"><b>Doctor ID</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.doctor.DoctorID)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>First Name</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.doctor.Firstname)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>Last Name</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.doctor.Lastname)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>Gender</b></td>
+                    <td>
+                        @if (Model.doctor.Gender)
+                {
+                            <p style="margin:0;">Male</p>
+                        }
+                        else
+                        {
+                            <p style="margin:0;">Female</p>
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>Date of Birth</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.doctor.DateofBirth)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>Phone</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.doctor.Phone)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>Email</b></td>
+                    <td>
+                        @Html.DisplayTextFor(model => model.doctor.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>SSN</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.doctor.SSN)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>Zip-Code</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.doctor.Zip)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>Doctor Type</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.doctor.DoctorType)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>Hospital</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.hospital.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>Address</b></td>
+                    <td>
+                        @Html.DisplayFor(model => model.hospital.Address)
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>City</b></td>
+                    <td>
+                        @ViewBag.City
+                    </td>
+                </tr>
+                <tr>
+                    <td id="inner"><b>State</b></td>
+                    <td>
+                        @ViewBag.State
+                    </td>
+                </tr>
+            </table>
+        }
+        <div>
+            <a href="@Url.Action("index", "Account")" class="btn btn-default">
+                Back to List
+            </a>
+        </div>
+        <!--Scripts-->
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,138 @@
+﻿@model CignaInsurance.ViewModels.UpdateDetailsViewModel
+
+@{
+    ViewBag.Title = "UpdateAccount";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>UpdateAccount</h2>
+<html>
+    <head>
+        <!--Styles-->
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!--Content-->
+        <div style="width:700px; margin-top:100px;">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Customer</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.FullCustomerDetail.CustomerDetail.CustomerID)
+                    @Html.HiddenFor(model => model.FullCustomerDetail.CustomerDetail.UserID)
+                    @Html.HiddenFor(model => model.FullCustomerDetail.CustomerDetail.DoctorID)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CustomerDetail.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FullCustomerDetail.CustomerDetail.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FullCustomerDetail.CustomerDetail.Firstname, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CustomerDetail.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FullCustomerDetail.CustomerDetail.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FullCustomerDetail.CustomerDetail.Lastname, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CustomerDetail.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            Male: @Html.RadioButtonFor(model => model.FullCustomerDetail.CustomerDetail.Gender, true, new { htmlAttributes = new { @class = "form-control" } })
+                            Female: @Html.RadioButtonFor(model => model.FullCustomerDetail.CustomerDetail.Gender, false, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CustomerDetail.DateofBirth, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.FullCustomerDetail.CustomerDetail.DateofBirth, new { @class = "form-control", type = "date", @Value = Model.FullCustomerDetail.CustomerDetail.DateofBirth.ToString("yyyy-MM-dd") })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CustomerDetail.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FullCustomerDetail.CustomerDetail.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FullCustomerDetail.CustomerDetail.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CityDetail.CityName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.CitySelectedID, new SelectList(Model.CityNames, "Value", "Text"), "--Select a City--")
+                            @Html.ValidationMessageFor(model => model.CitySelectedID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.StateDetail.StateName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.StateSelectedID, new SelectList(Model.StateNames, "Value", "Text"), "--Select a State--")
+                            @Html.ValidationMessageFor(model => model.StateSelectedID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CustomerDetail.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FullCustomerDetail.CustomerDetail.Zip, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FullCustomerDetail.CustomerDetail.Zip, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CustomerDetail.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FullCustomerDetail.CustomerDetail.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FullCustomerDetail.CustomerDetail.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CustomerDetail.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FullCustomerDetail.CustomerDetail.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FullCustomerDetail.CustomerDetail.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FullCustomerDetail.CustomerDetail.SSN, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FullCustomerDetail.CustomerDetail.SSN, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FullCustomerDetail.CustomerDetail.SSN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @ViewBag.ErrorMsg
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div>
+                <a href="@Url.Action("index", "Account")" class="btn btn-default">
+                    Back to List
+                </a>
+            </div>
+            <!--Scripts-->
+            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <script src="~/Scripts/jquery.validate.min.js"></script>
+            <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+            <script src="~/Scripts/bootstrap.js"></script>
+        </div>
+    </body>
+
+</html>

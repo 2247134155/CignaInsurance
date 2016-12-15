@@ -1,0 +1,91 @@
+﻿@model CignaInsurance.ViewModels.ClaimDetailsViewModel
+@{
+    ViewBag.Title = "Claims";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<html>
+<head>
+    <!--Styles-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        table {
+            margin-bottom: auto;
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td {
+            padding-bottom: 1em;
+        }
+
+        tr {
+        }
+        #inner {
+            padding-left: 2em;
+            text-align:center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!--Content-->
+        <h2>Claims</h2>
+    <div style="width:800px; margin-right:300px;">
+        <table class="table-hover">
+            <tr class="row">
+                <td style="text-align:center;">Claim ID</td>
+                <td id="inner">Claim Status</td>
+                <td id="inner">Agent Name</td>
+                <td id="inner">Description</td>
+                <td id="inner">Declare Date</td>
+                <td id="inner">Paid Date</td>
+                <td id="inner">Amount Paid</td>
+            </tr>
+            @foreach (var claim in Model.ClaimsCollection)
+            {
+                <tr class="row">
+                    <td style="text-align:center;">
+                        @claim.ClaimID
+
+                    </td>
+                    <td id="inner">
+                        @claim.ClaimStatus
+                    </td>
+                    <td id="inner">
+                        @foreach (var agent in Model.AgentCollection)
+                        {
+                            if (agent.AgentID == claim.AgentID)
+                            {
+                                @agent.Firstname  @agent.Lastname
+                            }
+                        }
+                    </td>
+                    <td id="inner">
+                        @claim.Description
+                    </td>
+                    <td id="inner">
+                        @claim.DeclareDate
+                    </td>
+                    <td id="inner">
+                        @claim.PaidDate
+                    </td>
+                    <td id="inner">
+                        @claim.AmountPaid
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div>
+            <a href="@Url.Action("index", "Account")" class="btn btn-default">
+                Back to List
+            </a>
+        </div>
+        <!--Scripts-->
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+    </div>
+</body>
+</html>

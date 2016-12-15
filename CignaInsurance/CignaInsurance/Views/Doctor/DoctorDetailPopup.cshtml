@@ -1,0 +1,40 @@
+﻿@model System.Collections.Generic.IEnumerable<CignaInsurance.Models.DoctorViewModel>
+
+@{
+    ViewBag.Title = "DoctorDetailPopup";;
+}
+
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+
+<body>
+
+    @foreach (var doctor in Model)
+    {
+        <h3>@Html.DisplayFor(m => doctor.doc.Firstname)</h3>
+        <td>ID:</td>
+        <td>@Html.DisplayFor(m => doctor.doc.DoctorID)</td>
+        <br />
+        <td>Type:</td>
+        <td>@Html.DisplayFor(m => doctor.doc.DoctorType)</td>
+        <br />
+        <td>Phone#: </td>
+        <td>@Html.DisplayFor(m => doctor.doc.Phone)</td>
+        <br />
+        <td>Email: </td>
+        <td>@Html.DisplayFor(m => doctor.doc.Email)</td>
+        <br />
+        <td>Address: </td>
+        <td>@Html.DisplayFor(m => doctor.doc.Address)</td>
+        <br />
+        <td>@Html.DisplayFor(m => doctor.citys.CityName)</td>
+        <td>@Html.DisplayFor(m => doctor.states.StateName)</td>
+        <br /><br />
+        <button class="w3-btn-block w3-dark-grey" onclick="location.href='@Url.Action("FinishChooseDoctor", "Doctor")'">Confirm</button>
+    }
+
+
+    <br />
+</body>

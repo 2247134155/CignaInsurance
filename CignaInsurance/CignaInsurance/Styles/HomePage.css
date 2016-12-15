@@ -1,91 +1,57 @@
-﻿    #sitebody{
-            width: 100%;
-            height:80%;
-            margin: 0 auto;
+﻿        body {
+            font: 20px Montserrat, sans-serif;
+            line-height: 1.8;
+            color: #f5f6f7;
         }
-    #menubar{
-        text-align: center;
-        height: 80px;
-        line-height: 80px;
-        margin: 0 auto;
 
+        p {
+            font-size: 16px;
         }
-    #buttons{
-        text-decoration: none;
-        color: white;
-        }
-    #logo{
-            
-        }
-    
-    #content1{
-        width: 100%;
-            
-        }
-    #functionality{
-            margin-left: 30px;
-            margin-right: 30px;
 
+        .margin {
+            margin-bottom: 45px;
         }
-    #functions{
-        text-align: center;
+
+        .bg-1 {
+            background-color: cadetblue;
+            color: #ffffff;
         }
-    #functions li{
-        display: inline-block;
-        padding-left: 5px;
-        font-size: 22;
+
+        .bg-2 {
+            background-color: midnightblue;
+            color: #ffffff;
         }
-    #functions li:not(:first-child):before {
-    content: " > ";
+
+        .bg-3 {
+            background-color:white;
+            color: #555555;
         }
-    #content2{
-        text-align: center;
+
+        .bg-4 {
+            background-color: darkslategray;
+            color: #fff;
         }
-    #content2 img{
-            display: inline-block;
-            margin-left: 80px;
+
+        .container-fluid {
+            padding-top: 70px;
+            padding-bottom: 70px;
         }
-    #menubar li{
-        display:inline;
-        padding-left:5px;
+
+        .navbar {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border: 0;
+            border-radius: 0;
+            margin-bottom: 0;
+            font-size: 12px;
+            letter-spacing: 5px;
         }
-        
-    #menubar li:not(:first-child):before {
-    content: " | ";
+
+        .navbar-nav li a:hover {
+            color: #1abc9c !important;
         }
-    #list{
-            display: inline-block;
-        }
-    #login{
-            margin-left: 240px;
-            background-color: dodgerblue;
-            color: white;
-            padding-left: 30px;
-            padding-right: 30px;
-            border-color: black;
-            box-shadow: 3px 3px 1px #888888;
-        }
-    #findDoc{
-            margin-left:40px;
-            background-color: dodgerblue;
-            color: white;
-            padding-left: 30px;
-            padding-right: 30px;
-            border-color: black;
-            box-shadow: 3px 3px 1px #888888;
-        }
-    #search{
-            margin-left: 100px;
-            background-color: dodgerblue;
-            color: white;
-            padding-left: 30px;
-            padding-right: 30px;
-            border-color: black;
-            box-shadow: 3px 3px 1px #888888;
-        }
-    #searchbar{
-            margin-left: 10px;
-        }
-    #firstpanel{
-            margin-left: 100px;
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 70%;
+            margin: auto;
         }

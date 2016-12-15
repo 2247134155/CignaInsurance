@@ -4,7 +4,444 @@
     ViewBag.Title = "AboutQuote";
 }
 
-<h2>AboutQuote</h2>
+<form action="BuyQuote" method="post" data-toggle="validator" role="form">
+    <h2>Get a Quote</h2>
+    <ul class="nav nav-tabs">
+        <li id="AboutQuoteLi" class="active"><a id="AboutQuoteLink" href="#AboutQuoteDiv" data-toggle="tab">About Quote</a></li>
+        <li id="AddPlanLi" class="disabled"><a id="AddPlanLink" data-toggle="tab">Add Plans</a></li>
+        <li id="BuyQuoteLi" class="disabled"><a id="BuyQuoteLink" data-toggle="tab">Apply&Buy</a></li>
+    </ul>
+    <div class="tab-content" id="GetAQuoteDiv">
+        <div class="Hidden" id="PostToServerDiv">
+            <input name="CustID" id="CustomerId" value="@Model.cust.CustomerID" type="hidden" />
+            <input name="QuoteID" id="QuoteId" value="@Model.quote.QuoteID" type="hidden" />
+            <input name="QuoteDescription" id="QuoteDescription" type="hidden" />
+            <input name="MedicalPlan" id="MedicalPlan" value="0" type="hidden" />
+            <input name="DentalPlan" id="DentalPlan" value="0" type="hidden" />
+            <input name="EyePlan" id="EyePlan" value="0" type="hidden" />
+        </div>
+        <div class="tab-pane active" id="AboutQuoteDiv">
+            <div class="row" id="QuoteInfo&PersonalInfoDiv">
+                <div class="col-sm-6" id="QuoteInfoDiv">
+                    <div class="panel panel-default">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-default">
+                                <div class="form-group">
+                                    <div class="form-group has-feedback">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">Select start date:</span>
+                                            <input type="date" class="form-control" id="QuoteStartDate" name="QuoteStartDate" value="@ViewBag.StartDate" aria-describedby="basic-addon1" required />
+                                        </div>
+                                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                        <div class="help-block with-errors">Don't forget to check Start Date before you pay!</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-default">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1">Select payment period:</span>
+                                    <select name="PayPeriod" id="PayPeriod" class="form-control" aria-describedby="basic-addon1">
+                                        <option id="1" value="1">Monthly</option>
+                                        <option id="6" value="6">HalfYear</option>
+                                        <option id="12" value="12">Yearly</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6" id="PersonalInfoDiv">
+                    <div class="panel panel-default">
+                        <div class="panel panel-heading">
+                            <h5>Quote Summary</h5>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                Name: @Model.cust.Firstname @Model.cust.Lastname
+                            </li>
+                            <li class="list-group-item">
+                                Date of birth: @Model.cust.DateofBirth.ToString()
+                            </li>
+                            <li class="list-group-item">
+                                Where you will live: @ViewBag.City @ViewBag.State
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="QuoteTypeDiv">
+                <div class="col-sm-4" id="SilverDiv">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" style="text-align:center;font-weight:bold;">Silver</h2>
+                        </div>
+                        <div class="panel-body">
+                            <h4 style="text-align:center;">$200 Per Month</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-default">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    Overall Annual Benefit:$1000
+                                </li>
+                                <li class="list-group-item list-group-item-default">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    Cover for Cancer up to 50%
+                                </li>
+                                <li class="list-group-item list-group-item-default">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    No Travel Safety
+                                </li>
+                            </ul>
+                            <div style="text-align:center">
+                                <input type="button" class="btn btn-primary btn-sm" value="&nbsp&nbsp&nbsp&nbsp Select &raquo;&nbsp&nbsp&nbsp&nbsp" id="Silver" onclick="ChooseSilver()" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4" id="GoldDiv">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" style="text-align:center;font-weight:bold;">Gold</h2>
+                        </div>
+                        <div class="panel-body">
+                            <h4 style="text-align:center;">$300 Per Month</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-default">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    Overall Annual Benefit:$2000
+                                </li>
+                                <li class="list-group-item list-group-item-default">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    Total Cover for Cancer
+                                </li>
+                                <li class="list-group-item list-group-item-default">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    Travel Safety Service
+                                </li>
+                            </ul>
+                            <div style="text-align:center">
+                                <input type="button" class="btn btn-primary btn-sm" value="&nbsp&nbsp&nbsp&nbsp Select &raquo;&nbsp&nbsp&nbsp&nbsp" id="Gold" onclick="ChooseGold()" />
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4" id="PlatinumDiv">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h2 class="panel-title" style="text-align:center;font-weight:bold;">Platinum</h2>
+                        </div>
+                        <div class="panel-body">
+                            <h4 style="text-align:center;">$400 Per Month</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-default">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    Overall Annual Benefit:$5000
+                                </li>
+                                <li class="list-group-item list-group-item-default">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    Total Cover for Cancer
+                                </li>
+                                <li class="list-group-item list-group-item-default">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true">
+                                        
+                                    </span>
+                                    Routine maternity cover up to 100%
+                                </li>
+                            </ul>
+                            <div style="text-align:center">
+                                <input type="button" class="btn btn-primary btn-sm" value="&nbsp&nbsp&nbsp&nbsp Select &raquo;&nbsp&nbsp&nbsp&nbsp" id="Platinum" onclick="ChoosePlatinum()" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="button" class="btn btn-warning" value="Save Quote" id="test" />
+            <a href="/Quote/RetrieveQuote">
+                 <input type="button" class="btn btn-warning" value="Retrieve a Quote" />
+            </a>
+        </div>
+        <div class="tab-pane" id="AddPlanDiv">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="well">
+                        <h3>Select your Additional benefits</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-heading">
+                                <div class="media">
+                                    <div class="pull-left ">
+                                        <img class="media-object" src="~/images/stethoscope.png" />
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Medical Care</h4>
+                                        <p>$60 Monthly cost will let you do blah</p>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn btn-warning" type="button" id="medical" onclick="AddMedical()" >
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                            Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-heading">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img class="media-object" src="~/images/teeth.png" />
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Dental Care</h4>
+                                        <p>$70 Monthly cost will let you do blah</p>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn btn-warning" type="button" id="dental" onclick="AddDental()">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                            Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-heading">
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img class="media-object" src="~/images/eyes.png" />
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">Eye Care</h4>
+                                        <p>$80 Monthly cost will let you do blah</p>
+                                    </div>
+                                    <div class="pull-right">
+                                        <button class="btn btn-warning" type="button" id="eye" onclick="AddEye()">
+                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                            Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div id="StartDateValidation">
 
+                        </div>
+                        <button type="button" class="btn btn-warning" id="buyQuote">
+                            BUY
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="BuyQuoteDiv">
+            <h4>Please review information below before you buy quote</h4>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="panel panel-default">
+                        <div class="panel panel-heading">
+                            <h3>Personal Information</h3>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                Name: @Model.cust.Firstname @Model.cust.Lastname
+                            </li>
+                            <li class="list-group-item">
+                                Date of birth: @Model.cust.DateofBirth.ToString()
+                            </li>
+                            <li class="list-group-item">
+                                Where you will live: @ViewBag.City @ViewBag.State
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel panel-heading">
+                            <h3>Quote Information</h3>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-default">
+                                Quote Date: <label class="QuoteDate" id="QuoteDate"></label><br />
+                            </li>
+                            <li class="list-group-item list-group-item-default">
+                                Quote Type: <label class="QuoteType" id="QuoteType"></label><br />
+                            </li>
+                            <li class="list-group-item list-group-item-default">
+                                <div id="PlanTypes">
+                                    Plan Details:
 
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-default">
+                                Total Monthly Cost: <label class="TotalMonthlyCost" id="TotalMonthlyCost"></label><br />
+                            </li>
+                            <li class="list-group-item list-group-item-default">
+                                You will Pay: <label class="TotalPay" id="TotalPay"></label>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-warning">Buy Quote</button>
+                </div>
+            </div> 
+        </div>
+    </div>
+</form>
+<div id="SaveQuoteModal" title="Your Quote has been Saved">
+    <p>Your quote id is shown below, remember your quote Id to retrieve</p>
+    <label id="SavedQuoteId"></label>
+</div>
 
+<script>
+    /******************Save Quote Function*********************/
+    //Show the Quote Id after quote saved
+    $("#SaveQuoteModal").dialog({
+        autoOpen: false,
+        width: 300,
+        height: 200,
+        show: {
+            effect: "blind",
+            duration: 1000
+        },
+        hide: {
+            effect: "explode",
+            duration: 1000
+        }
+    });
+    //Send quote data to database to save the quote
+    $("#test").click(function () {
+
+        var custId = $("#CustomerId").val().toString();
+        var quoteId = $("#QuoteId").val().toString();
+        var quoteStartDate = $("#QuoteStartDate").val().toString();
+        var payPeriod = $("#PayPeriod").val().toString();
+        $.ajax({
+            type: 'POST',
+            url: '/Quote/SaveQuote',
+            data: {cid:custId,
+                qid:quoteId,
+                qsd:quoteStartDate,
+                ppd:payPeriod},
+            dataType: 'json',
+            success: function (data) {
+                $("#SavedQuoteId").val(data);
+                document.getElementById('SavedQuoteId').innerHTML = data;
+                $("#SaveQuoteModal").dialog("open");
+                $("#QuoteId").val(data);
+            }
+        });
+    });
+</script>
+<script>
+    /***********************OnClick Function**************************/
+    //Three functions to set the quote type
+    function ChooseSilver() {
+        $("#QuoteDescription").val("Silver");
+        $("#AboutQuoteLi").attr("class", "");
+        $("#AboutQuoteDiv").attr("class", "tab-pane");
+        $("#AddPlanLi").attr("class", "active");
+        $("#AddPlanDiv").attr("class", "tab-pane active");
+        $("#AddPlanLink").attr("href", "#AddPlanDiv");
+    }
+    function ChooseGold() {
+        $("#QuoteDescription").val("Gold");
+        $("#AboutQuoteLi").attr("class", "");
+        $("#AboutQuoteDiv").attr("class", "tab-pane");
+        $("#AddPlanLi").attr("class", "active");
+        $("#AddPlanDiv").attr("class", "tab-pane active");
+        $("#AddPlanLink").attr("href", "#AddPlanDiv");
+    }
+    function ChoosePlatinum() {
+        $("#QuoteDescription").val("Platinum");
+        $("#AboutQuoteLi").attr("class", "");
+        $("#AboutQuoteDiv").attr("class", "tab-pane");
+        $("#AddPlanLi").attr("class", "active");
+        $("#AddPlanDiv").attr("class", "tab-pane active");
+        $("#AddPlanLink").attr("href", "#AddPlanDiv");
+    }
+    function AddMedical() {
+        
+        if ($("#MedicalPlan").val() != "1") {
+            document.getElementById("medical").innerHTML = '<span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Remove';
+            $("#MedicalPlan").val("1");
+            //$("#AddMedicalSpan").attr("class", "glyphicon glyphicon-minus");
+        }
+        else {
+            document.getElementById("medical").innerHTML = '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add';
+            $("#MedicalPlan").val("0");
+            //$("#AddMedicalSpan").attr("class", "glyphicon glyphicon-plus");
+        }
+    }
+    function AddDental() {
+        if ($("#DentalPlan").val() != "1") {
+            document.getElementById("dental").innerHTML = '<span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Remove';
+            $("#DentalPlan").val("1");
+            //$("#AddDentalSpan").attr("class", "glyphicon glyphicon-minus");
+        }
+        else {
+            document.getElementById("dental").innerHTML = '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add';
+            $("#DentalPlan").val("0");
+            //$("#AddDentalSpan").attr("class", "glyphicon glyphicon-plus");
+        }
+    }
+    function AddEye() {
+        if ($("#EyePlan").val() != "1") {
+            document.getElementById("eye").innerHTML = '<span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Remove';
+            $("#EyePlan").val("1");
+            //$("#AddEyeSpan").attr("class", "glyphicon glyphicon-minus");
+        }
+        else {
+            document.getElementById("eye").innerHTML = '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add';
+            $("#EyePlan").val("0");
+            //$("#AddEyeSpan").attr("class", "glyphicon glyphicon-plus");
+        }
+    }
+
+</script>
+<script>
+    /***************************CalCulate Total Fee***************************/
+    $("#buyQuote").click(function () {
+        //Calculate Total Monthly Cost
+        if ($("#QuoteStartDate").val() == "") {
+            
+            document.getElementById("StartDateValidation").innerHTML = '<div class="alert alert-danger" role="alert">' +
+                "Please Go to About Quote Page to select Start Date!" +
+                '</div>';
+        }
+        else {
+            document.getElementById("StartDateValidation").innerHTML = '';
+            var quoteType = $("#QuoteDescription").val();
+            var quoteFee = 0;
+            if (quoteType == "Silver") {
+                quoteFee = 200;
+            }
+            else if (quoteType == "Gold") {
+                quoteFee = 300;
+            }
+            else {
+                quoteFee = 400;
+            }
+            if ($("#MedicalPlan").val() == "1") {
+                quoteFee += 60;
+                document.getElementById("PlanTypes").innerHTML += '<span class="label label-success">Medical Plan</span>&nbsp;';
+            }
+            if ($("#DentalPlan").val() == "1") {
+                quoteFee += 70;
+                document.getElementById("PlanTypes").innerHTML += '<span class="label label-success">Dental Plan</span>&nbsp;';
+            }
+            if ($("#EyePlan").val() == "1") {
+                quoteFee += 80;
+                document.getElementById("PlanTypes").innerHTML += '<span class="label label-success">EyeCare Plan</span>';
+            }
+            //Show Quote and Plan Info
+            var period = parseInt($("#PayPeriod").val());
+            var quoteStartDate = new Date($("#QuoteStartDate").val());
+            var quoteEndDate = new Date();
+            quoteEndDate.setDate(quoteStartDate.getDate() + period * 30);
+            var quoteDate = quoteStartDate.toDateString() + " to " + quoteEndDate.toDateString();
+            var quoteTotalFee = quoteFee * period;
+            document.getElementById("QuoteDate").innerHTML = quoteDate;
+            document.getElementById("QuoteType").innerHTML = quoteType;
+            document.getElementById("TotalMonthlyCost").innerHTML = quoteFee;
+            document.getElementById("TotalPay").innerHTML = quoteTotalFee;
+            $("#AddPlanLi").attr("class", "");
+            $("#AddPlanDiv").attr("class", "tab-pane");
+            $("#BuyQuoteLi").attr("class", "active");
+            $("#BuyQuoteDiv").attr("class", "tab-pane active");
+            $("#BuyQuoteLink").attr("href", "#BuyQuoteDiv");
+        }
+    });
+</script>

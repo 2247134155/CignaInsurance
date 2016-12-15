@@ -1,0 +1,78 @@
+﻿@model CignaInsurance.ViewModels.PlanDetailsModelView
+@{
+    ViewBag.Title = "PlanDetail";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<html>
+<head>
+    <!--Styles-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        table {
+            margin-bottom: auto;
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding-bottom: 1em;
+        }
+        #inner{
+            padding-left:2em;
+        }
+
+        tr {
+        }
+    </style>
+
+</head>
+<body>
+    <!--Content-->
+
+    <h2>PlanDetail</h2>
+        <div style="width:800px; margin-right:300px;">
+            <table class="table-hover">
+                <tr class="row">
+                    <td style="text-align:center;">Plan Name</td>
+                    <td id="inner">Start Date</td>
+                    <td id="inner">End Date</td>
+                    <td id="inner">Plan Fee</td>
+                </tr>
+                @foreach (var plan in Model.PlanCollections)
+            {
+                    <tr class="row">
+                        <td style="text-align:center;">
+                            @foreach( var planName in Model.PlanTypeCollections)
+                            {
+                                if (plan.PlanTypeID == planName.PlanTypeID)
+                                {
+                                    @planName.PlanTypeName
+                                }
+                            }
+                        </td>
+                        <td id="inner">
+                            @plan.StartDate
+                        </td>
+                        <td id="inner">
+                            @plan.EndDate
+                        </td>
+                        <td id="inner">
+                            @plan.PlanFee
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            <div>
+                <a href="@Url.Action("index", "Account")" class="btn btn-default">
+                    Back to List
+                </a>
+            </div>
+            <!--Scripts-->
+            <script src="~/Scripts/bootstrap.js"></script>
+            <script src="~/Scripts/jquery-1.10.2.js"></script>
+        </div>
+</body>
+</html>
